@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useCart } from "@/context/CartContext";
 
 export default function CheckoutPage() {
-  const { cart, subtotal, clearCart } = useCart();
+  const { cart, subtotal, clearCart, shipping, total } = useCart();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
@@ -40,7 +40,9 @@ export default function CheckoutPage() {
               <div>${(it.price*it.quantity).toFixed(2)}</div>
             </div>
           ))}
-          <div style={{marginTop:12, fontWeight:'bold'}}>Total: ${subtotal.toFixed(2)}</div>
+          <div style={{marginTop:8}}>Subtotal: ${subtotal.toFixed(2)}</div>
+          <div>Shipping: ${shipping.toFixed(2)}</div>
+          <div style={{marginTop:12, fontWeight:'bold'}}>Total: ${total.toFixed(2)}</div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
-  const { cart, updateQuantity, removeFromCart, subtotal } = useCart();
+  const { cart, updateQuantity, removeFromCart, subtotal, shipping, total } = useCart();
 
   return (
     <div style={{padding:16}}>
@@ -30,8 +30,10 @@ export default function CartPage() {
         ))}
       </div>
 
-      <div style={{marginTop:16, fontWeight:'bold'}}>
-        Subtotal: ${subtotal.toFixed(2)}
+      <div style={{marginTop:16}}>
+        <div style={{fontWeight:'bold'}}>Subtotal: ${subtotal.toFixed(2)}</div>
+        <div>Shipping: ${shipping.toFixed(2)}</div>
+        <div style={{fontWeight:'bold', marginTop:8}}>Total: ${total.toFixed(2)}</div>
       </div>
     </div>
   );
