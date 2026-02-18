@@ -13,23 +13,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container flex items-center gap-4 py-3">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 text-slate-800 hover:text-slate-600 transition-colors duration-150 font-semibold text-lg ">
           <div className="w-10 h-8 bg-amber-400 rounded-sm flex items-center justify-center text-black font-bold">MS</div>
-          <div className="ml-1 text-base font-semibold text-slate-800">MyStore</div>
+          <div className="ml-1 text-base font-bold text-slate-800 ">MyStore</div>
         </Link>
 
-        <div className="flex-1">
-          <form className="max-w-2xl mx-auto">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full border border-slate-200 rounded-full py-2 px-4 pr-24 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300"
-              />
-              <button type="submit" className="absolute right-1 top-1/2 -translate-y-1/2 bg-amber-400 text-black px-3 py-1.5 rounded-full text-sm font-medium hover:brightness-95">Search</button>
-            </div>
-          </form>
-        </div>
 
         <nav className="flex items-center gap-3 text-sm">
           <Link href="/wishlist" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-slate-50">
