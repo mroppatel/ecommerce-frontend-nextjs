@@ -12,12 +12,25 @@ export default async function ProductPage({ params }: Props) {
         <div className="md:col-span-1 card p-6 flex items-center justify-center">
           <img src={product.image} alt={product.title} className="max-h-96 object-contain" />
         </div>
+
         <div className="md:col-span-2">
           <h1 className="text-2xl font-bold">{product.title}</h1>
           <div className="mt-2 text-2xl text-sky-600 font-semibold">${product.price.toFixed(2)}</div>
           <p className="mt-4 text-slate-600">{product.description}</p>
-          <p className="mt-3 text-sm text-slate-500"><strong>Category:</strong> {product.category}</p>
-          <ProductActions product={product} />
+
+          <div className="mt-6 flex items-center gap-4">
+            <ProductActions product={product} />
+            <div className="ml-4 text-sm text-slate-500">Category: <span className="text-slate-700 font-medium ml-1">{product.category}</span></div>
+          </div>
+
+          <div className="mt-6 card p-4">
+            <h3 className="font-semibold mb-2">Product details</h3>
+            <ul className="text-sm text-slate-600 list-disc list-inside">
+              <li>Brand: Example Brand</li>
+              <li>Availability: In stock</li>
+              <li>Ships within 2-4 business days</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -11,8 +11,11 @@ export default async function HomePage() {
 
   return (
     <div className="py-8">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold">Products</h1>
+      <div className="bg-gradient-to-r from-sky-50 to-cyan-50 rounded-lg p-6 mb-6 flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold">Shop our collection</h1>
+          <p className="text-slate-600 mt-1">Curated products from Fake Store API — top picks for you.</p>
+        </div>
         <div className="text-sm text-slate-500">{products.length} items</div>
       </div>
 
