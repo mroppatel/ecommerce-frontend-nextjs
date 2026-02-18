@@ -1,23 +1,31 @@
 import React from "react";
 import Link from "next/link";
+import ProductActions from "./ProductActions";
 
 export default function ProductCard({ product }: any) {
   return (
-    <div className="card p-4 hover:shadow-md transition-shadow duration-150">
-      <Link href={`/product/${product.id}`}>
-        <div className="w-full h-44 flex items-center justify-center bg-white">
+    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-150 overflow-hidden flex flex-col">
+      <Link href={`/product/${product.id}`} className="block">
+        <div className="w-full h-48 bg-gray-50 flex items-center justify-center">
           <img src={product.image} alt={product.title} className="max-h-40 object-contain" />
         </div>
       </Link>
-      <h3 className="mt-3 text-sm font-medium line-clamp-2 h-10">{product.title}</h3>
-      <div className="mt-2 flex items-center justify-between">
-        <div>
-          <div className="text-lg font-bold">${product.price.toFixed(2)}</div>
-          <div className="text-xs text-slate-500">{product.category}</div>
+
+      <div className="p-4 flex-1 flex flex-col">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-sm font-semibold line-clamp-2">{product.title}</h3>
+          <div className="text-right">
+            <div className="text-lg font-bold">${product.price.toFixed(2)}</div>
+            <div className="text-xs text-slate-400 mt-1">{product.category}</div>
+          </div>
         </div>
-        <Link href={`/product/${product.id}`} className="text-sm text-sky-600 hover:underline">View</Link>
+
+        <p className="mt-2 text-sm text-slate-600 line-clamp-3">{product.description}</p>
+
+        <div className="mt-4">
+          <ProductActions product={product} />
+        </div>
       </div>
-      <p className="mt-2 text-xs text-slate-500 line-clamp-2">{product.description}</p>
     </div>
   );
 }
