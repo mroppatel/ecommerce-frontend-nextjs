@@ -3,16 +3,18 @@ import Link from "next/link";
 
 export default function ProductCard({ product }: any) {
   return (
-    <div style={{border: '1px solid #ddd', padding: 12, borderRadius: 6, width: 260}}>
+    <div className="card p-4">
       <Link href={`/product/${product.id}`}>
-        <img src={product.image} alt={product.title} style={{width: '100%', height: 180, objectFit: 'contain'}} />
+        <div className="w-full h-44 flex items-center justify-center">
+          <img src={product.image} alt={product.title} className="max-h-40 object-contain" />
+        </div>
       </Link>
-      <h3 style={{fontSize: 16, margin: '8px 0'}}>{product.title}</h3>
-      <p style={{fontWeight: 'bold'}}>${product.price.toFixed(2)}</p>
-      <p style={{color:'#555', fontSize: 13}}>{product.description?.slice(0, 80)}...</p>
-      <div style={{marginTop:8}}>
-        <Link href={`/product/${product.id}`}>View details</Link>
+      <h3 className="mt-3 text-sm font-medium line-clamp-2 h-10">{product.title}</h3>
+      <div className="mt-2 flex items-center justify-between">
+        <div className="text-lg font-bold">${product.price.toFixed(2)}</div>
+        <Link href={`/product/${product.id}`} className="text-sm text-sky-600 hover:underline">View</Link>
       </div>
+      <p className="mt-2 text-xs text-slate-500 line-clamp-2">{product.description}</p>
     </div>
   );
 }

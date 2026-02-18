@@ -6,34 +6,34 @@ export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, subtotal, shipping, total } = useCart();
 
   return (
-    <div style={{padding:16}}>
-      <h1>Your Cart</h1>
-      {cart.length === 0 && <p>Your cart is empty.</p>}
-      <div style={{display:'grid', gap:12}}>
+    <div className="py-8">
+      <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
+      {cart.length === 0 && <p className="text-slate-600">Your cart is empty.</p>}
+      <div className="grid gap-4">
         {cart.map((item: any) => (
-          <div key={item.id} style={{display:'flex', gap:12, alignItems:'center', border: '1px solid #eee', padding:12}}>
-            <img src={item.image} alt={item.title} style={{width:80, height:80, objectFit:'contain'}} />
-            <div style={{flex:1}}>
-              <div style={{fontWeight:'bold'}}>{item.title}</div>
-              <div>${item.price.toFixed(2)}</div>
-              <div style={{marginTop:8}}>
-                <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
-                <span style={{margin: '0 8px'}}>{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
+          <div key={item.id} className="card p-4 flex items-center gap-4">
+            <img src={item.image} alt={item.title} className="w-20 h-20 object-contain" />
+            <div className="flex-1">
+              <div className="font-medium">{item.title}</div>
+              <div className="text-slate-600">${item.price.toFixed(2)}</div>
+              <div className="mt-2 flex items-center gap-2">
+                <button className="px-2 py-1 border rounded" onClick={() => updateQuantity(item.id, item.quantity - 1)}>-</button>
+                <div className="px-3">{item.quantity}</div>
+                <button className="px-2 py-1 border rounded" onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
               </div>
             </div>
-            <div>
-              <div>${(item.price * item.quantity).toFixed(2)}</div>
-              <button style={{marginTop:8}} onClick={() => removeFromCart(item.id)}>Remove</button>
+            <div className="text-right">
+              <div className="font-semibold">${(item.price * item.quantity).toFixed(2)}</div>
+              <button className="mt-2 text-sm text-red-600" onClick={() => removeFromCart(item.id)}>Remove</button>
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{marginTop:16}}>
-        <div style={{fontWeight:'bold'}}>Subtotal: ${subtotal.toFixed(2)}</div>
-        <div>Shipping: ${shipping.toFixed(2)}</div>
-        <div style={{fontWeight:'bold', marginTop:8}}>Total: ${total.toFixed(2)}</div>
+      <div className="mt-6 p-4 card">
+        <div className="flex justify-between"><div>Subtotal</div><div>${subtotal.toFixed(2)}</div></div>
+        <div className="flex justify-between"><div>Shipping</div><div>${shipping.toFixed(2)}</div></div>
+        <div className="flex justify-between mt-3 text-lg font-bold"><div>Total</div><div>${total.toFixed(2)}</div></div>
       </div>
     </div>
   );
