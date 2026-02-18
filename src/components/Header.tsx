@@ -12,14 +12,18 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container flex items-center gap-4 py-3">
-        <Link href="/" className="flex items-center gap-3 text-slate-800 hover:text-slate-600 transition-colors duration-150 font-semibold text-lg ">
+      <div className="container flex items-center gap-6 py-3">
+        {/* Logo - Left */}
+        <Link href="/" className="flex items-center gap-2 text-slate-800 hover:text-slate-600 transition-colors duration-150 font-semibold flex-shrink-0">
           <div className="w-10 h-8 bg-amber-400 rounded-sm flex items-center justify-center text-black font-bold">MS</div>
-          <div className="ml-1 text-base font-bold text-slate-800 ">MyStore</div>
+          <div className="text-base font-bold text-slate-800">MyStore</div>
         </Link>
 
+        {/* Spacer */}
+        <div className="flex-1"></div>
 
-        <nav className="flex items-center gap-3 text-sm">
+        {/* Nav - Right */}
+        <nav className="flex items-center gap-6 p-3 text-sm whitespace-nowrap flex-shrink-0">
           <Link href="/wishlist" className="flex items-center gap-2 px-2 py-1 rounded hover:bg-slate-50">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"/></svg>
             <span className="text-slate-700">Wishlist</span>
